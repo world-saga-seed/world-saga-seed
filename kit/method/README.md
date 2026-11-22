@@ -15,6 +15,7 @@ The pipeline says what to do. These pages say why, so you can bend a step withou
 | [Agents (wiki)](https://github.com/world-saga-seed/world-saga-seed/wiki/Agents) | Few agents, narrow briefs, named files, fresh eyes. Inventions logged, checked apart. |
 | [choosing-a-check.md](choosing-a-check.md) | The critics run at Quick, Thorough or Deep. Quick is the default; spend more where a missed fault is expensive. |
 | [craft.md](craft.md) | The craft rules the method grew: causes, clues, lulls, voice, habits, restraint. |
+| [costs.md](costs.md) | What a pass, a chapter and a volume cost in tokens and time, and how much of the bible a run reads; measure your own. |
 | [session-close.md](session-close.md) | Why a session, a task and a volume end cleanly, and what the writer says to move the work along. |
 
 ## The one-sentence version

@@ -12,7 +12,7 @@ It is a set of workflows: procedures Claude Code runs on your book, each saying 
 
 ## Before you start
 
-What has been tested, what you need, what it costs in tokens and time, how much of the bible a chapter reads, where your manuscript goes, and **the content limits** (Anthropic's Usage Policy applies to everything drafted, whatever the setting) are in [the wiki](https://github.com/world-saga-seed/world-saga-seed/wiki/Before-you-start), with the [big ideas](https://github.com/world-saga-seed/world-saga-seed/wiki/The-big-ideas) behind the method and a [glossary](https://github.com/world-saga-seed/world-saga-seed/wiki/Glossary) of the words used here.
+What it costs in tokens and time, and how much of the bible a chapter reads, are in [kit/method/costs.md](kit/method/costs.md). What has been tested, what you need, where your manuscript goes, and **the content limits** (Anthropic's Usage Policy applies to everything drafted, whatever the setting) are in [the wiki](https://github.com/world-saga-seed/world-saga-seed/wiki/Before-you-start), with the [big ideas](https://github.com/world-saga-seed/world-saga-seed/wiki/The-big-ideas) behind the method and a [glossary](https://github.com/world-saga-seed/world-saga-seed/wiki/Glossary) of the words used here.
 
 **During the alpha, until 15 December 2026,** issues, comments and pull requests are open to collaborators only. To comment, ask to be added as a collaborator in the Discord discussion where the alpha was shared; anyone can read, clone and fork the kit meanwhile.
 
