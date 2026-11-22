@@ -24,7 +24,7 @@ python3 tools/epub.py --title "Volume 1" --author "Your Name" --series "Your Ser
 - **Front matter:** `--front` sets a page before the first chapter (only what follows its first `---`, so the top of the file can hold writer-side notes). **A later volume opens on the story so far** (the interest check's recap), so a reader who comes back after a break is not lost.
 - **Series metadata** groups the books on readers that support it.
 - **Tracing a comment back:** each chapter is its own page, and every paragraph carries its source line as an id (`p87` is line 87). A highlight names its page; its quoted text finds the line.
-- **Kobo readers:** `--kepub` also runs kepubify if it is installed; send the `.kepub.epub`, which the device's own renderer reads with the reader's settings. Put only one of the two files on the device.
+- **Kobo readers:** every build also makes the `.kepub.epub` when kepubify is installed (`--no-kepub` to skip it); send the `.kepub.epub`, which the device's own renderer reads with the reader's settings. Put only one of the two files on the device.
 - Keep `build/` out of git.
 - Check a build with epubcheck if you have it.
 

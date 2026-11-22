@@ -37,7 +37,9 @@ Options:
   --uid-seed S     what the book's identifier is made from (default: the title);
                    keep it fixed so a rebuilt book is the same book to the reader
   --out FILE       where to write the .epub (folders are created)
-  --kepub          also run kepubify (if installed) for Kobo readers
+  --no-kepub       build the plain EPUB only; by default kepubify (if installed)
+                   also makes FILE.kepub.epub for Kobo readers (--kepub, the
+                   old switch, is still taken and does nothing more)
 
 What goes in: each file's text only. The first "# " line is the chapter title
 (a trailing "(draft N)" is dropped); other headings become subheads; "---" is a
@@ -204,7 +206,8 @@ def main():
     ap.add_argument('--outline', help='folder of numbered outlines; an outlined chapter with no prose gets a "[Not yet drafted.]" page')
     ap.add_argument('--from', dest='lo', type=int, help='first chapter number, e.g. 100')
     ap.add_argument('--to', dest='hi', type=int, help='last chapter number, e.g. 2000')
-    ap.add_argument('--kepub', action='store_true', help='also run kepubify, if installed, for Kobo readers')
+    ap.add_argument('--kepub', action='store_true', help=argparse.SUPPRESS)  # the default now; kept so old commands run
+    ap.add_argument('--no-kepub', action='store_true', help='build the plain EPUB only, without the .kepub.epub')
     a = ap.parse_args()
 
     entries = []   # (id, href, title, xhtml)
@@ -326,7 +329,7 @@ def main():
             z.writestr('OEBPS/' + href, text, compress_type=D)
     words = sum(len(re.sub('<[^>]+>', ' ', e[3]).split()) for e in entries)
     print(f'{a.out}: {len(entries)} pages, about {words} words')
-    if a.kepub:
+    if not a.no_kepub:
         if shutil.which('kepubify'):
             kepub = re.sub(r'\.epub$', '', a.out) + '.kepub.epub'
             if os.path.exists(kepub):

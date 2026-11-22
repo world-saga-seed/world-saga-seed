@@ -137,4 +137,4 @@ Each script was run on the kit's `example/` folder:
 - `knowledge.py` on the example's guard at 00100, 00500 and 00600: 6, 8 and 6 entries, the right ones; at 00500 the belief and the not-known that end there marked as turning.
 - `markup.py` on the example's 00400 with four planted finds: 20 items listed (8 keyframe sources, 12 assisted); three finds placed with their colours, the planted one with words not on the page dropped and listed.
 - `tokens.py` on a planted transcript of five lines (one call written twice, one agent call, one call later, one line not JSON): 3 calls, the doubled one once, the agent's summed apart, the bad line reported and skipped; `--until` before the last call keeps 2, a `--since` with no zone read as local keeps 1, a `--since` after them all exits 1; `--append` adds one row under the template's header.
-- `epub.py`: a numbered build with one drafted chapter and one placeholder, and a file-list build with `--kepub`; every XML part parsed as well-formed.
+- `epub.py`: a numbered build with one drafted chapter and one placeholder, and a file-list build, with the `.kepub.epub` made by default; every XML part parsed as well-formed.
