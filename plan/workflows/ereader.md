@@ -73,7 +73,7 @@ Short, so a phone can carry it. One comment per message is easiest, but several 
 
 1. **Summarize** in the read task: comments by kind and chapter, the rulings made, the questions held, the reshoots proposed.
 2. **Put the open questions and reshoots to the writer** at the keyboard, a few at a time, each with a recommendation.
-3. **Fix as a task:** reshoots through dictation and the drafting chain; trims and line fixes through the reviser, from the Next pass lists. Then rebuild once and say so.
+3. **Fix as a task:** reshoots through dictation and the drafting chain, and a reshoot's new beats go into the outline and through the [three critics](actor-log.md#the-three-critics) (the light pass, on the changed beats) before the redraft, since the prose critics judge the page against the outline and never ask whether the people would do it; trims and line fixes through the reviser, from the Next pass lists. Then rebuild once and say so.
 
 ### From the device's own notes instead
 
