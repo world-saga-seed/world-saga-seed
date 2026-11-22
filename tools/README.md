@@ -1,6 +1,6 @@
 # Tools
 
-Twenty-three small Python scripts. Standard library only (Python 3.8 or later), no paths written into them, everything set by arguments. Four of them (`sounds.py`, `refrains.py`, `scale.py` and the banned-word scan in `tells.py`) read the page through `context.py`, the shared reader and pattern matcher, so keep it in the same folder as they are; a fix to how a chapter is read, split into sentences or searched is made there once. They come with the clone, in `tools/`; run each from the book's top folder. Every script answers `--help`.
+Twenty-four small Python scripts. Standard library only (Python 3.8 or later), no paths written into them, everything set by arguments. Four of them (`sounds.py`, `refrains.py`, `scale.py` and the banned-word scan in `tells.py`) read the page through `context.py`, the shared reader and pattern matcher, so keep it in the same folder as they are; a fix to how a chapter is read, split into sentences or searched is made there once. They come with the clone, in `tools/`; run each from the book's top folder. Every script answers `--help`.
 
 They give the method its mechanical checks: verdicts nobody argues with, under every judgment a critic or reader makes. **Try each one on a case it must catch before you trust a clean result from it** (a planted broken link, a planted banned word).
 
@@ -20,6 +20,7 @@ They come in three levels. Start with the basic ones; add the refinement checks 
 | `quotes.py` | checks that every quote in a report is really in the text it quotes | `python3 tools/quotes.py findings.md --in story/prose/00400-*.md` |
 | `epub.py` | builds an EPUB of chosen chapters, each paragraph tagged with its source line | `python3 tools/epub.py --title "Volume 1" --out build/v1.epub story/prose/00*.md` |
 | `tokens.py` | a session's token totals (input, cache written, cache read, output; by model; the agents inside it apart) from its Claude Code transcript, as a row for the token log; a call written as several lines counted once | `python3 tools/tokens.py ~/.claude/projects/BOOK/SESSION.jsonl --step "session close" --log plan/tokens.md --append` |
+| `check_commit.py` | refuses a commit that stages a recording, anything under `tmp/`, a Zone.Identifier file or a file over 10 MB; setup installs it as the pre-commit hook | `python3 tools/check_commit.py` |
 | `check_clean.py` | checks that a book cloned from the kit has nothing left of the example: no `example/`, no name from it, no link into it | `python3 tools/check_clean.py` |
 
 ### Refinement
