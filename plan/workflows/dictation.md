@@ -46,3 +46,4 @@ Keep a pace the writer can hold. A key frame a day across a few weeks fills a vo
 - **Dictations reach past the chapter.** Grep the thread before carding, and card each rule at its home.
 - **The writer's asides are key frames too.** An aside about where a beat lands later is its own ledger row.
 - **After a run of dictations, run a ripple scan** before drafting ([ripple](ripple.md)).
+- **A recording stays out of git.** An audio file or a raw transcript of the writer's voice is kept in `tmp/` (ignored) or outside the repository; only the carded key frames, in the writer's words as read, are committed. A recording once committed stays in the history until the history is rewritten.
