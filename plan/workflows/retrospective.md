@@ -32,7 +32,7 @@ A skipped close leaves debris: finished tasks still "Executing", stopped runs wh
 6. **Keep what worked:** ask "what did this session do that is worth keeping?" Promote the answer to a workflow's lessons or a rule in `plan/README.md`.
 7. **Links:** `python3 tools/links.py` prints 0 broken (or the known baseline).
 8. **Tokens:** append the session's row to the token log: `python3 tools/tokens.py TRANSCRIPT --step "what the session did" --log plan/tokens.md --append`. The transcript is the session's file under `~/.claude/projects/` (the newest `.jsonl` in the book's folder there); name an agent's own transcript too if it has one.
-9. **Commit** when the writer says so, never before. Check `git status` is clean afterward.
+9. **Commit** when the writer says so, never before. Check `git status` is clean afterward, and report the hash as `git log -1` shows it.
 
 ## Accepting a volume
 
