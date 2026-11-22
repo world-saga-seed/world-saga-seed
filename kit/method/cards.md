@@ -4,7 +4,7 @@
 
 Each fact about the story lives in exactly one file. Every other file that needs it links there. When the fact changes, it changes once.
 
-The files that hold facts are **cards**: one short file per person, place, object or rule, in folders under `world/` (`world/people/`, `world/places/`, `world/things/`, and whatever your book needs). Larger subjects that many cards lean on (how the town's year runs, how the law works) get **topic files** at the top of `world/`.
+The files that hold facts are **cards**: one short file per person, place, object or rule, in folders under `world/` (`world/people/`, `world/places/`, `world/things/`, `world/animals/` for a named creature or a species the book describes, and whatever your book needs). Larger subjects that many cards lean on (how the town's year runs, how the law works) get **topic files** at the top of `world/`.
 
 The main characters get fuller **character sheets** in `story/notes/characters/`.
 
@@ -39,9 +39,13 @@ Write tight. Every word on a card is read by every agent that opens it.
 ## What a card holds, and what it does not
 
 - **It holds** what is true about the thing, what the page shows of it, who uses it, where it appears, and what is still open.
-- **It does not hold** a scene. Story beats go in the outline.
+- **It does not hold** a scene. Story beats go in the outline. A card holds what is true of its subject (its nature, traits, skills, possessions, relations, and the dated changes to them); "he asks whether the engineer can swim" is an event, and stays in the outline, and the card says at most which chapter changed something.
 - **It does not restate** a rule that lives on another card. It states the consequence and links the home.
 - **Lore stays in the notes.** A card can hold far more than any scene shows. That is the point: the detail is there for later scenes to draw on. Do not treat a long card as a pacing problem.
+
+## Stubs: card what recurs, stub the rest
+
+Carding a long work in full spends most of its tokens on things no scene will use. A thing met in one chapter that is no clue gets a **stub**: the card head, a line `Stub: build when a scene needs it.`, and the lines that cite it. A full card goes to what recurs (two or more chapters) or is a clue. Before a chapter is drafted, any stub its outline or notes link is built from its cited lines; `tools/reading.py` names each linked stub and lists it to build first.
 
 ## Big cards open with an index
 
