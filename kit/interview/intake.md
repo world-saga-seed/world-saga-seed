@@ -9,6 +9,7 @@ Know what the writer has before asking them anything. The interview is short and
 ## Steps
 
 1. **List everything** in `existing/`: file, size in words, and a one-line guess at what it is.
+   A folder with a `SOURCE.md` is a third-party text, not the writer's own work: list it as a source with its edition and status, check its files against `SHA256SUMS` (`sha256sum -c`), and keep it apart from the writer's files below: it is a style sample only if the writer names it one, and where it disagrees with the writer's notes, quote both and ask.
 2. **Sort each file into a kind:**
    - **manuscript** (drafted prose meant for the book)
    - **notes** (setting, characters, plot ideas)
@@ -16,6 +17,7 @@ Know what the writer has before asking them anything. The interview is short and
    - **fragments** (scenes or lines without a place yet)
    - **old versions** (earlier drafts the writer has moved past)
    - **other** (research, inspiration, letters)
+   - **source** (a text that is not the writer's, in its own folder with a `SOURCE.md`; see [existing/README.md](../../existing/README.md))
 3. **For each manuscript:** the point of view and tense; the chapters or scenes in order; the named people, places and objects; the dates or seasons named. Pick the two or three passages that sound most like the writer at their best. These are candidate **style samples**.
 4. **For notes and outlines:** the facts they state, and where two files disagree. Quote both sides. Do not decide which is right.
 5. **Guess the shape** of the book: how much exists, where it starts and stops, what seems fixed and what seems loose. Mark every guess *(My reading, to confirm.)*.
