@@ -39,8 +39,9 @@ beats too, unless one contradicts a settled beat; nothing the outline marks auth
 reference. The chapter falls after {FRAME}. Length: {WORDS}, a target, not a cap.
 
 Keep to the texture in the rulings: measure with
-  python3 tools/tells.py story/prose/{N}-{SLUG}.md --banned story/voice/banned.txt
-and fix every banned-word hit that is narration.
+  python3 tools/tells.py story/prose/{N}-{SLUG}.md --banned story/voice/banned.txt --sample story/voice/samples/*
+and fix every banned-word hit that is narration, every "over the sample" line, and every
+"spelling" line.
 
 Scale. {SCALE} gives the viewpoint's height at this chapter and where a counter, a belt or a
 doorway meets them. Measure every size on the page from the one who sees it, at that height,

@@ -8,6 +8,7 @@ double quotes), so a chapter can be set beside the writer's own samples.
 
 Usage:
   python3 tools/tells.py FILE [FILE ...] [--banned LIST] [--stop REGEX] [--all-text]
+                         [--sample FILE ...]
 
   FILE          markdown chapters; headings (# lines) are ignored
   --banned LIST a word list: one word or phrase per line, matched as whole
@@ -17,6 +18,11 @@ Usage:
                 (default "^## Notes", so notes kept under a draft are skipped)
   --all-text    scan dialogue too when looking for banned words
                 (by default only narration is scanned)
+  --sample FILE the voice sample (one or more files, pooled): under each
+                chapter, an "over the sample" line where short/k, run or
+                trip/k runs well past the sample's own, and a "spelling" line
+                for each word the sample prints another way (colour/color,
+                -ise/-ize, centre/center, travelled/traveled, grey/gray)
 
 Per file it prints one line of numbers:
   w            narration words
@@ -27,6 +33,12 @@ Per file it prints one line of numbers:
   med, sd      median and spread of sentence length in words
   short%       sentences of 6 words or fewer;  long%  sentences of 25 or more
   button%      paragraphs of two sentences or more that end on one of 5 words or fewer
+  short/k      short narration sentences (under 8 words) per 1,000 words of
+               narration sentences; a sentence holding dialogue is skipped
+  run          the longest run of short narration sentences in a row: a
+               chapter can match the averages and still read clipped in a cluster
+  trip/k       rhythm triplets ("dry, warm, and snug") per 1,000 words; a list
+               of things counts too, so read it against the sample's own rate
 Under it, a "knot" line for each narration sentence of 35 words or more that
 holds a semicolon: two main clauses run through one read as a tangle (a list
 held by semicolons is fine; the reviser splits the rest).
@@ -65,6 +77,67 @@ def body_lines(path, stop):
     return out
 
 
+SPLIT = re.compile(r'(?<=[.!?])["”’)]*\s+(?=["“‘(]?[A-Z])')
+TRIPLET = re.compile(r"\b[\w'’-]+(?: [\w'’-]+){0,2}, [\w'’-]+(?: [\w'’-]+){0,2},? (?:and|or) [\w'’-]+(?: [\w'’-]+){0,2}\b")
+
+
+def shape(text):
+    """Short narration sentences, the words they are counted over, and the longest run."""
+    short = words = longest = 0
+    for p in text.split('\n\n'):
+        cur = 0
+        for s in SPLIT.split(p.strip()):
+            if re.search(r'["“”]', s):      # a sentence holding dialogue: skipped, and it ends a run
+                cur = 0
+                continue
+            n = len(s.split())
+            words += n
+            if 0 < n < 8:
+                short += 1
+                cur += 1
+                longest = max(longest, cur)
+            else:
+                cur = 0
+    return short, words, longest
+
+
+PAIRS = {'grey': 'gray', 'plough': 'plow', 'mould': 'mold', 'sceptic': 'skeptic', 'whilst': 'while'}
+
+
+def variants(w):
+    """The other spellings of a word: -our/-or, -ise/-ize, -re/-er, -ll-/-l-, and a few pairs."""
+    out = set()
+    for a, b in PAIRS.items():
+        if w == a: out.add(b)
+        if w == b and b != 'while': out.add(a)
+    m = re.match(r"^(\w{3,}?)(our|or)(s|ed|ing|ite|ites|able|ful)?$", w)
+    if m and not m.group(1).endswith('o'):   # floor is not flour
+        out.add(m.group(1) + ('or' if m.group(2) == 'our' else 'our') + (m.group(3) or ''))
+    m = re.match(r'^(\w{3,}?)(is|iz)(e|es|ed|ing|ation|ations)$', w)
+    if m:
+        out.add(m.group(1) + ('iz' if m.group(2) == 'is' else 'is') + m.group(3))
+    m = re.match(r'^(\w{3,}?)(re|er)(s)?$', w)
+    if m:
+        out.add(m.group(1) + ('er' if m.group(2) == 're' else 're') + (m.group(3) or ''))
+    m = re.match(r'^(\w{4,}?)(ll|l)(ed|ing|er|ers|ous)$', w)
+    if m and m.group(1)[-1] in 'aeiou':   # travel-led, never fill-ed for filed
+        out.add(m.group(1) + ('l' if m.group(2) == 'll' else 'll') + m.group(3))
+    out.discard(w)
+    return out
+
+
+def spellings(text, sample_words):
+    words = set(re.findall(r"[a-z]+", text.lower()))
+    found = []
+    for w in sorted(words):
+        if w in sample_words:
+            continue
+        other = sorted(v for v in variants(w) if v in sample_words)
+        if other:
+            found.append(f'{w} (sample: {other[0]})')
+    return found
+
+
 def numbers(lines, counts=()):
     text = '\n'.join('' if l.startswith('#') else l for l in lines)
     narr = QUOTED.sub('', text)
@@ -90,6 +163,10 @@ def numbers(lines, counts=()):
         'long%': 100 * sum(x >= 25 for x in lens) / len(lens),
         'button%': 100 * sum(len(s[-1].split()) <= 5 for s in multi) / max(1, len(multi)),
         'knots': [s.strip() for s in sents if ';' in s and len(s.split()) >= 35],
+        'short/k': 1000 * shape(text)[0] / max(1, shape(text)[1]),
+        'run': shape(text)[2],
+        'trip/k': 1000 * len(TRIPLET.findall(narr)) / w,
+        'text': text,
         'counts': [(name, 1e4 * c(rx) / w) for name, rx in counts],
     }
 
@@ -102,8 +179,14 @@ def main():
     ap.add_argument('--all-text', action='store_true', help='scan dialogue for banned words too')
     ap.add_argument('--count', action='append', default=[], metavar='NAME=REGEX',
                     help='also count a pattern in narration, per 10,000 words (repeatable), for a habit of your own narrator')
+    ap.add_argument('--sample', nargs='+', metavar='FILE', help='the voice sample: flag measures well past it, and spellings it prints another way')
     a = ap.parse_args()
     banned = load_banned(a.banned) if a.banned else []
+    base = None
+    if a.sample:
+        st = '\n\n'.join('\n'.join(body_lines(f, a.stop)) for f in a.sample)
+        base = numbers(st.split('\n'))
+        base_words = set(re.findall(r'[a-z]+', QUOTED.sub('', base['text']).lower()))
     hits = []
     for f in a.files:
         lines = body_lines(f, a.stop)
@@ -112,9 +195,23 @@ def main():
         print(f"{name:30} w={n['w']:5} way/k={n['way/k']:4.1f} asif/k={n['asif/k']:4.1f} "
               f"and/s={n['and/s']:.2f} neg/k={n['neg/k']:4.1f} med={n['med']:2} sd={n['sd']:4.1f} "
               f"short%={n['short%']:3.0f} long%={n['long%']:3.0f} button%={n['button%']:3.0f}"
+              f" short/k={n['short/k']:4.1f} run={n['run']} trip/k={n['trip/k']:4.1f}"
               + ''.join(f" {k}/10k={v:4.1f}" for k, v in n['counts']))
         for k in n['knots']:
             print(f"    knot ({len(k.split())} words): {' '.join(k.split())[:160]}")
+        if base is not None:
+            over = []
+            if n['short/k'] > 1.5 * base['short/k'] and n['short/k'] - base['short/k'] > 2:
+                over.append(f"short/k {n['short/k']:.1f} (sample {base['short/k']:.1f})")
+            if n['run'] >= 3 and n['run'] > base['run'] + 1:
+                over.append(f"run {n['run']} (sample {base['run']})")
+            if n['trip/k'] > 1.5 * base['trip/k'] and n['trip/k'] - base['trip/k'] > 1:
+                over.append(f"trip/k {n['trip/k']:.1f} (sample {base['trip/k']:.1f})")
+            if over:
+                print('    over the sample: ' + '; '.join(over))
+            sp = spellings(QUOTED.sub('', n['text']), base_words)
+            if sp:
+                print('    spelling: ' + ', '.join(sp))
         if banned:
             pats = [{'label': j, 're': rx, 'near_re': None, 'unless_re': None, 'within': 0,
                      'narration': not a.all_text} for j, (label, rx) in enumerate(banned)]

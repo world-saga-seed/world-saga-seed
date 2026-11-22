@@ -37,6 +37,8 @@
 - "the way you … / the way a …" simile: no more than [2] per 1,000 words of narration, never twice in a paragraph.
 - "and" per sentence: about [0.5 to 0.65]. Break long chains with full stops, not semicolons; do not chop below [0.45].
 - No paragraph with three or more negations, or three or more "looked at".
+- Short narration sentences (`short/k`, under 8 words) near the samples' rate, and no run of them longer than the samples' (`run`): a chapter can match every average and still read clipped where the short ones cluster. `tells.py --sample` flags both, and rhythm triplets (`trip/k`), against the samples.
+- Spelling as the samples print it: `--sample` names each word the samples spell another way (colour/color, -ise/-ize, centre/center, travelled/traveled). The name forms are the cards'.
 - None of the stock beats: "It was not X. It was Y."; a list of three abstract clauses; the quiet-realization paragraph that ends "and then I let it go"; a summing-up tag line that says what the scene showed.
 - A closing phrase used at most once a chapter.
 
