@@ -1,5 +1,7 @@
 # [Arc name] (arc outline)
 
+*Lives at `story/outline/<n>-<arc>.md`.*
+
 *[Where the arc sits, its span in time, the narrator and tense, and how points are marked.]*
 
 ## The shape

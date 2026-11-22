@@ -1,6 +1,6 @@
 # Templates
 
-Empty forms. They come with the clone, in `plan/templates/`. Fill in the brackets; delete the italic guidance. The kit's example (in the kit's repository, `example/`) shows most of them filled in; the last column gives where.
+Empty forms. They come with the clone, in `plan/templates/`. Each names, under its title, the file it becomes, so a brief that places a file elsewhere can be checked against it. Fill in the brackets; delete the italic guidance. The kit's example (in the kit's repository, `example/`) shows most of them filled in; the last column gives where.
 
 | Template | Becomes | Filled-in example |
 |---|---|---|

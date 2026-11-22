@@ -1,5 +1,7 @@
 # [Working title]: plan and working rules
 
+*Lives at `plan/README.md`.*
+
 This `plan/` folder is the record of the work on the novel: what is being done, what state each chapter is in, and what has been decided.
 
 ## At the start of every session

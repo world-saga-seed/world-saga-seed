@@ -1,5 +1,7 @@
 # Voice sheet: [narrator]
 
+*Lives at `story/voice/voice.md`.*
+
 *One voice sheet per narrating head. The POV file ([pov.md](pov.md)) says which head narrates where, and where it and this sheet differ, it wins.*
 
 ## The rule

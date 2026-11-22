@@ -1,5 +1,7 @@
 # Settled: [the decision, as an imperative]
 
+*Lives at `plan/settled/settled-YYYYMMDD-slug.md`.*
+
 - **Date:** YYYY-MM-DD. **Ledger:** R<MMDD>-NN.
 
 ## What was decided

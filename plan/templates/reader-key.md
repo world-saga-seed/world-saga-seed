@@ -1,5 +1,7 @@
 # The key: [stretch]
 
+*Lives at `plan/reader-tests/key.md`.*
+
 *(Proposal.) The spec for the blind probe. Built from the notes; never given to a reader.*
 
 | ID | Kind | Subject |

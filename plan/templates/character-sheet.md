@@ -1,5 +1,7 @@
 # [Name] (character sheet)
 
+*Lives at `story/notes/characters/<name>.md`.*
+
 ## At a glance
 
 - [A few lines, each linking the section that holds the detail.]

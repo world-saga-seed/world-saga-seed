@@ -1,5 +1,7 @@
 # Roadmap
 
+*Lives at `plan/roadmap.md`.*
+
 *Rewritten at the end of every session. Delete what is done; git keeps the history.*
 
 ## Now

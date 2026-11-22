@@ -1,5 +1,7 @@
 # Volume N: what the pages have set (FIRST to LAST)
 
+*Lives at `story/volume/<volume>-digest.md`.*
+
 *The page record, by chapter, for drafters and critics, built from the prose only; the prose wins where they differ. A small agent appends one block per chapter as each batch closes and brings **Standing** up to date; the supervisor checks every quote with `grep -F`. Agents read this, and the chapter before closely, in place of the volume's earlier chapters ([the reading list](../workflows/drafting/drafter.md#the-reading-list)).*
 
 ## Standing

@@ -1,3 +1,4 @@
+# Lives at story/voice/banned.txt.
 # Words and phrases the narration never uses.
 # One per line, matched as whole words, case ignored.
 # A line starting "re:" is a regular expression. Lines starting "#" are comments.

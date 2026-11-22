@@ -1,5 +1,7 @@
 # Task: [what it does]
 
+*Lives at `plan/tasks/task-YYYYMMDD-NN-slug.md`.*
+
 - **Objective:** [one sentence]
 - **Context:** [why, with the ruling's ID]
 - **Related study:** [path, or none]

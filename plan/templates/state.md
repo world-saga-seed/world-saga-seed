@@ -1,5 +1,7 @@
 # State
 
+*Lives at `plan/state.md`.*
+
 ## Questions held for the next session
 
 - [ ]

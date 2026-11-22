@@ -1,5 +1,7 @@
 # [Chapter title] (notes)
 
+*Lives at `story/notes/NNNNN-slug.md`.*
+
 ## Notes for drafting
 
 - **What the scene does:** [ ]

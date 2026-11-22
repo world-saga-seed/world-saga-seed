@@ -1,5 +1,7 @@
 # [Name]: [what it is, in a few words]
 
+*Lives at `world/<folder>/`.*
+
 *[One-line summary.]*
 
 Keywords: [words a search would reach for that the card does not already use]

@@ -1,5 +1,7 @@
 # POV file: [the book, or chapter NNNNN]
 
+*Lives at `story/voice/pov.md` or `story/voice/pov-NNNNN.md`.*
+
 *`story/voice/pov.md` sets the narration for the whole book; `story/voice/pov-NNNNN.md` sets it for one chapter that differs (a letter, an interlude, another narrator, a chapter with two heads). The drafter and every critic read it, and where it and the voice sheet differ, this file wins. Without it, every critic judges every chapter against the main narrator's rules, and any other narration arrives buried in false findings. Fill in each line; delete the guidance.*
 
 - **Person and tense:** [first person / close third / omniscient third; past / present.]

@@ -1,3 +1,4 @@
+# Lives at story/voice/refrains.txt.
 # Refrains for tools/refrains.py: one per line, a label, a tab, then a regular expression
 # (case ignored). Add each refrain a critic or reader names, so the next count catches it.
 # A refrain is a detail the book comes back to: a feature, a gesture, a laugh, a sound.
