@@ -10,6 +10,8 @@ A novel in progress by [your pen name]. The setting's facts are in `world/`. The
 
 `existing/` holds the writer's manuscripts and notes as they were handed over. It is **read-only**. Never edit, move, rename or reformat a file in it. Material from it is carried into `world/` and `story/` by the workflows, with a link back.
 
+A text that is not the writer's (a public-domain edition, a translation) sits in `existing/<source>/` with a `SOURCE.md`; plain text made from it goes in `sources/<source>/`, by a script in `scripts/` (the book's own scripts; `tools/` is the kit's). See [existing/README.md](existing/README.md).
+
 ## Rules
 
 1. **The notes are the facts.** `world/` and `story/` say what is true. A chapter is checked against them, never the reverse. Each fact lives in one file; other files link to it, never to a task paper. When a fact changes, grep `story/prose/` for the old fact and log drift in `plan/state.md`; do not edit drafts to match unless asked.
