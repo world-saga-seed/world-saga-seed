@@ -18,6 +18,7 @@ Each workflow has three labels.
 |---|---|---|---|---|
 | [capture-notes](capture-notes.md) | Intake | Refinement | Experimental | the writer brings an outside document |
 | [card-existing](card-existing.md) | Intake | Basic | Used |  |
+| [source-language](source-language.md) | Intake | Speciality | Experimental | the book is made from a source in another language |
 | [character-sheet](character-sheet.md) | Intake | Basic | Used |  |
 | [arc-pitch](arc-pitch.md) | Exploration | Refinement | Used | an arc has enough frames to lay out |
 | [consistency-check](consistency-check.md) | Exploration | Refinement | Used | several chapters are outlined and a horizon is about to be drafted |

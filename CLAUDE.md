@@ -36,6 +36,7 @@ A text that is not the writer's (a public-domain edition, a translation) sits in
 
 *Fill in what helps Claude work with you. Leave out anything you would rather not say.*
 
+- Working language (what everything Claude writes is in, when a source is in another; see [source-language](plan/workflows/source-language.md)): [ ]
 - Genre and what the book promises its reader: [ ]
 - What you dislike in books like this: [ ]
 - How you read drafts (screen, ereader, audio), and anything that makes reading hard for you (for example, unmarked jumps in time): [ ]
