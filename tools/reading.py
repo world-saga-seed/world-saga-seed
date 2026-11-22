@@ -9,6 +9,8 @@ that section's line range; the cards the outline or notes name without a link (b
 person's first name), listed apart as not to read unless --named read; the sheets
 of the people the chapter names (a sheet's own subfolder only when linked); the
 chapter before; and the volume digest in place of the rest of the volume.
+A linked card that is a stub (a line starting "Stub:") is named on stderr and
+listed first, to be built before the chapter is drafted.
 
 Usage:
   python3 tools/reading.py N [--step STEP] [--digest FILE] [--rules FILE ...]
@@ -52,6 +54,18 @@ RECIPES = {
     'scale':      ('size', 'size', True, 'links,marks,ids'),
 }
 INCLUDE = re.compile(r'^\s*[-*] \[[^\]]*\]\(([^)\s]+)\):\s*(.+?)\s*$')
+
+
+STUB = re.compile(r'^Stub:', re.M)
+
+
+def is_stub(path):
+    """A stub card carries a line starting "Stub:" (card-existing: build when a scene needs it)."""
+    try:
+        with open(path, encoding='utf-8') as f:
+            return bool(STUB.search(f.read()))
+    except OSError:
+        return False
 
 
 def slug(h):
@@ -725,7 +739,15 @@ def main():
         out += ['## Rules', '', *[f'- `{p}`' for p in a.rules if os.path.exists(p)],
                 f'- two or three of `{a.samples}`', '']
     out += ['## The chapter', '', *[f'- `{p}` (whole)' for p in srcs], '']
+    stubs = [t for t in cards if is_stub(t)]
+    for t in stubs:  # a stub is a head and its cited lines: build it before an agent reads it as the card
+        print(f'reading.py: {t} is a stub; build it from its cited lines before drafting', file=sys.stderr)
     if step in ('drafter', 'facts', 'setup', 'procedures'):
+        if stubs:
+            out += ['## Stubs to build first', '',
+                    'These cards are stubs (a head and the lines that cite the thing). Build each from its cited '
+                    'lines, by card-existing, before this chapter is drafted or checked.', '',
+                    *[f'- `{t}`' for t in stubs], '']
         out += ['## Cards and sections', '', *[fmt(t, links[t], a.large) for t in cards], '']
         if named:
             out += ['## Named but not linked', '',
