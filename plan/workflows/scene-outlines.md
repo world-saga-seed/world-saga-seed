@@ -10,7 +10,7 @@ Puts an arc into one form so it can be read, sorted and marked up together. **Dr
 
 - **Outline** (`story/outline/NNNNN-slug.md`): a title, `# <Name> (outline)`; one paragraph saying where it sits, the narrator and tense, and how points are marked; then `## Outline`, numbered `### N. <Beat>` sections of short marked bullets.
 - **Notes** (`story/notes/NNNNN-slug.md`, same number): `# <Name> (notes)`; `## Notes for drafting` (what the scene does, where it sits, cast, words, pacing, length, clues); `## Open and flags`.
-- Marks: *(Drafted.)* for what existing prose holds; *(Settled …)* for what the writer ruled; *(Proposal.)*; *(My reading, to confirm.)*.
+- Marks: *(Drafted.)* for what the writer's existing prose holds; *(Source.)* for what a third-party source holds (a public-domain original outlined beat by beat); *(Settled …)* for what the writer ruled; *(Proposal.)*; *(My reading, to confirm.)*.
 
 ## The loop
 

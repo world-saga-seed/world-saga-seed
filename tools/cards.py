@@ -81,7 +81,7 @@ Integrity. One command checks every card for what an agent must be able to trust
 
 Marks. A mark is "*(Word ...)*" in the text. Its first words set the status of
 the text after it, up to the next status mark: --settled-marks (default
-Settled, Resolved, Confirmed, Drafted) and --proposal-marks (default Proposal,
+Settled, Resolved, Confirmed, Drafted, Source) and --proposal-marks (default Proposal,
 Proposals, Proposed, My reading, My readings, Open). Any other mark (Distilled
 from, Moved, ...) is an annotation: it sets no status, and --strip marks drops it.
 """
@@ -246,7 +246,7 @@ def index(root, sheets):
 
 LABEL = re.compile(r'^- \*\*([^*]{1,60}?)\.\*\*')
 MARK = re.compile(r'\*\((?P<w>[A-Za-z][A-Za-z ]*?)\b[^\n]*?\)\*')
-SETTLED = ['Settled', 'Resolved', 'Confirmed', 'Drafted']
+SETTLED = ['Settled', 'Resolved', 'Confirmed', 'Drafted', 'Source']
 PROPOSAL = ['Proposal', 'Proposals', 'Proposed', 'My reading', 'My readings', 'Open']
 ID = re.compile(r',?\s*\b[A-Z]\d{4}-\d+(?:-\d+)?(?:\s*(?:to|and|,)\s*\d+)*\b')
 
