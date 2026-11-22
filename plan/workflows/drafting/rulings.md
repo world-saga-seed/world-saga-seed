@@ -14,6 +14,7 @@
 - **No hindsight.** [If told as it happens: no "later I learned", "I never saw her again", "for what came after".]
 - **The future may shape what is planted, never what is said.** A chapter states only what the cards show on the page at or before it.
 - **Never trim a clue.** No trim, cut or revision removes a line listed in `plan/reread-hooks.md` or in a chapter's clue notes. A line that looks like a clue and is listed nowhere is kept and reported.
+- **The narrator never lies.** The narration may withhold, give a belief as a person's, or leave the reader to puzzle; it never states a falsehood or a misleading half truth as fact (`story/voice/pov.md`).
 - **No explanation of how anything works** [unless your book explains; say which things may be explained, by whom].
 - [Spelling: American or British.] [Contractions in narration: allowed, sparing, or never.]
 - [Words the page never uses: run the banned list, `tools/tells.py FILE --banned story/voice/banned.txt`, and fix every hit in narration.]

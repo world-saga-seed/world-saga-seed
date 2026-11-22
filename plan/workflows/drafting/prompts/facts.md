@@ -1,4 +1,4 @@
-# Prompt: facts critic (v3)
+# Prompt: facts critic (v4)
 
 *One chapter. Runs as each draft lands, first of the critics.*
 
@@ -40,6 +40,19 @@ sheets:
 - a line that states something under Does not know is a break, and so is a line that
   contradicts an entry under Knows.
 A book with no guard for a head judges that head by the cards alone.
+
+How things work. For each physical detail the page gives (where a growth sits, how a thing
+wears, dries, stains, drifts, burns or floats), ask how it came to be so by the thing's own
+nature, not only whether a card allows it. A detail nature would not produce is a break
+when a clue or a reading rests on it, else weak; direction: what nature would show.
+
+The narrator never lies. What the narration states as fact is true in the book's world. It
+may hold a thing back, give a belief as a person's (a narrating head's listed belief given
+as the head's own reading), or leave the reader to puzzle. It may not state a falsehood, or
+a half truth meant to mislead, as fact. A head's listed wrong belief passes when the line
+gives it as the head's belief or reading; the same error stated as the world's fact, past
+what the head could vouch for ("as everyone knew", "it was so"), is a break, direction
+"give it as the head's belief, or cut it". An honest error of the book's own period stands.
 
 Held facts. The reader key, plan/reader-tests/key.md, lists what the reader must not
 get (its hidden and forbidden entries), and the outline marks author-side lines. A line
